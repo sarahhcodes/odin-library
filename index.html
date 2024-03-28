@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="library.js"></script>
+    <script src="library.js" defer="defer"></script>
 </head>
 <body>
     <form>
@@ -18,12 +18,13 @@
             <label for="pages">Page Count</label>
             <input type="text" id="pages" name="pages">
             <p>Have you read the book?</p>
-            <input type="radio" id="readY" name="read" value="readY">
-            <label for="readY">Yes</label>
-            <input type="radio" id="readN" name="read" value="readN">
-            <label for="readN">No</label>
+            <input type="checkbox" id="read" name="rea" value="read">
+            <label for="read">Yes</label>
         </fieldset>
-        <button type="button" value="enter">enter</button>
+        <button type="button" value="enter" id="enter">enter</button>
     </form>
+    <div id="displayLibrary">
+        
+    </div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 const myLibrary = [];
+const displayLibrary = document.getElementById('displayLibrary');
 
 function Book(title,author,pages,read) {
     this.title = title;
@@ -11,8 +12,24 @@ function Book(title,author,pages,read) {
 };
 
 function addBookToLibrary() {
-    
-}
-let harryPotter = new Book("Harry Potter","JK Rowling",300,true);
+    title = document.getElementById('title').value;
+    author = document.getElementById('author').value;
+    pages = document.getElementById('pages').value;
+    read = document.getElementById('read').checked;
 
-console.log(harryPotter.info())
+    myLibrary.push(new Book(title,author,pages,read))
+}
+
+myLibrary.push(new Book('Fight Club', 'Chuck Palahniuk', 250, true));
+myLibrary.push(new Book('Invisible Monsters', 'Chuck Palahniuk', 250, true));
+myLibrary.push(new Book('Choke', 'Chuck Palahniuk', 250, true));
+
+document.getElementById('enter').addEventListener('click', function() {
+    addBookToLibrary();
+});
+
+myLibrary.forEach((book) => {
+    // loop through myLibrary and display each book in a table
+    // need to initalize table in index.html
+    // each iteration should add a new row
+});
