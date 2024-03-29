@@ -1,0 +1,13 @@
+form {
+    margin-bottom: 25px;
+}
+
+table {
+    border-style: solid;
+    width: 90%;
+}
+
+td,tr{
+    border-style: solid;
+    padding: 0.2em;
+}

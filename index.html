@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <script src="library.js" defer="defer"></script>
 </head>
 <body>
+    <dialog id="newBookForm">
     <form>
         <fieldset>
             <label for="title">Title</label>
@@ -18,13 +20,20 @@
             <label for="pages">Page Count</label>
             <input type="text" id="pages" name="pages">
             <p>Have you read the book?</p>
-            <input type="checkbox" id="read" name="rea" value="read">
+            <input type="checkbox" id="read" name="read" value="read">
             <label for="read">Yes</label>
         </fieldset>
+        <button type="button" value="cancel" id="cancel">cancel</button> 
         <button type="button" value="enter" id="enter">enter</button>
     </form>
-    <div id="displayLibrary">
-        
-    </div>
+    </dialog>
+    <button id="showForm" value="showForm">Add New Book</button>
+    <table id="displayLibrary"><tr>
+        <td>Title</td>
+        <td>Author</td>
+        <td>Page Count</td>
+        <td>Read</td>
+        <td></td>
+    </tr></table>
 </body>
 </html>
