@@ -1,5 +1,5 @@
 // need to add:
-// 1) ability to remove books
+// 1) ability to remove books (DONE!)
 // 2) ability to mark as read
 // 3) a nice style!
 
