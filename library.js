@@ -1,3 +1,8 @@
+// need to add:
+// 1) ability to remove books
+// 2) ability to mark as read
+// 3) a nice style!
+
 const myLibrary = [];
 const displayLibrary = document.getElementById('displayLibrary');
 const showForm = document.getElementById('showForm');
@@ -32,18 +37,22 @@ document.getElementById('enter').addEventListener('click', function() {
     newBookForm.close();
 });
 
-//document.getElementById('remove').addEventListener('click', function(){
-    //currentIndex = document.getElementsByClassName('')
-//});
-
 function generateLibrary() {
     // clear displayLibrary & regenerate with top row
     displayLibrary.innerHTML = '<td>Title</td><td>Author</td><td>Page Count</td><td>Read</td><td></td>';
     // loop through myLibrary and display each book in a table
-    myLibrary.forEach((book) => {
+    myLibrary.forEach((book, index) => {
+        // generates each row in the table
         let newRow = document.createElement('tr');
-        newRow.innerHTML = '<td>' + book.title + '</td><td>' + book.author+ '</td><td>' + book.pages + '</td><td>' + book.read + '</td>' + '<td><button id="remove">remove</button></td>';
+        newRow.innerHTML = '<td>' + book.title + '</td><td>' + book.author+ '</td><td>' + book.pages + '</td><td>' + book.read + '</td>' + '<td><button id="remove' + index + '">remove</button></td>';
         displayLibrary.appendChild(newRow);
+
+        // adds ability to remove each book in the library
+        document.getElementById('remove' + index).addEventListener('click', function() {
+            console.log("remove item at " + index);
+            myLibrary.splice(index,1);
+            generateLibrary();
+        });
     });
 };
 
