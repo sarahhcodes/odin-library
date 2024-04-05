@@ -1,5 +1,5 @@
 form {
-    margin-bottom: 25px;
+    margin: 25px;
 }
 
 table {
@@ -10,4 +10,15 @@ table {
 td,tr{
     border-style: solid;
     padding: 0.2em;
+}
+
+#showForm {
+    margin: 25px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

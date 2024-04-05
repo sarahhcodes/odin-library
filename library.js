@@ -1,6 +1,6 @@
 // need to add:
 // 1) ability to remove books (DONE!)
-// 2) ability to mark as read
+// 2) ability to mark as read (DONE -> would rather checkboxes though)
 // 3) a nice style!
 
 const myLibrary = [];
@@ -27,7 +27,7 @@ function addBookToLibrary() {
     myLibrary.push(new Book(title,author,pages,read))
 }
 
-myLibrary.push(new Book('Fight Club', 'Chuck Palahniuk', 250, true));
+myLibrary.push(new Book('Fight Club', 'Chuck Palahniuk', 250, false));
 myLibrary.push(new Book('Invisible Monsters', 'Chuck Palahniuk', 250, true));
 myLibrary.push(new Book('Choke', 'Chuck Palahniuk', 250, true));
 
@@ -44,13 +44,27 @@ function generateLibrary() {
     myLibrary.forEach((book, index) => {
         // generates each row in the table
         let newRow = document.createElement('tr');
-        newRow.innerHTML = '<td>' + book.title + '</td><td>' + book.author+ '</td><td>' + book.pages + '</td><td>' + book.read + '</td>' + '<td><button id="remove' + index + '">remove</button></td>';
+        let bookRead;
+        if (book.read) {
+            bookRead = 'read';
+        }
+        else {
+            bookRead = 'not read';
+        }
+        newRow.innerHTML = '<td>' + book.title + '</td><td>' + book.author+ '</td><td>' + book.pages + '</td><td><button id="markRead' + index +'">' + bookRead + '</button></td>' + '<td><button id="remove' + index + '">remove</button></td>';
         displayLibrary.appendChild(newRow);
 
         // adds ability to remove each book in the library
         document.getElementById('remove' + index).addEventListener('click', function() {
             console.log("remove item at " + index);
             myLibrary.splice(index,1);
+            generateLibrary();
+        });
+
+        // adds ability to mark book as read
+        document.getElementById('markRead' + index).addEventListener('click', function() {
+            console.log("read!");
+            book.read = true;
             generateLibrary();
         });
     });
